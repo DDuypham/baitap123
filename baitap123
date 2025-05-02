@@ -4,25 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bai 1
+namespace DQbt1_tinh_tong
 {
     internal class Program
     {
+        //BT1: tính tổng của n số nguyên dương đầu tiên
+        // S(n) = 1 + 2 + 3 + ... + n - 1 + n, n > 0
         static void Main(string[] args)
         {
-            Console.WriteLine("Tinh tong tu 1 den n.");
+            Console.WriteLine("Nhap so nguyen n > 0");
 
-            //nhap gia tri cho n
-            Console.Write("\nNhap vao so nguyen n: ");
+            //nhập số nguyên n
+            Console.WriteLine("Nhap vao so nguyen n: ");
             int n = int.Parse(Console.ReadLine());
 
-            //xuat ket qua tinh tong
-            Console.WriteLine("\nTong tu 1 den n la: " + Tong(n));
+            //Gọi hàm đệ quy tính tổng
+            Console.WriteLine("Tinh tong so nguyen n: " + Tong(n));
 
             Console.ReadKey();
         }
 
-        //ham de quy tinh tong
+        //Hàm đệ quy tính tổng
         static int Tong(int n)
         {
             if (n == 1)
@@ -33,40 +35,76 @@ namespace bai 1
     }
 }
 ======================================================================
-sing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bai 2
+namespace DQbt2_tinhtong_TH
 {
     internal class Program
     {
+        //BT2:Tính tổ hợp chập K của n phần tử
+        //k = 0 V k = n ; 0 < k < n
         static void Main(string[] args)
         {
-            Console.WriteLine("Tinh to hop chap k cua n phan tu.");
-
-            //nhap gia tri n, k
-            Console.Write("\nNhap vao so nguyen n: ");
-            int n = int.Parse(Console.ReadLine());
-            Console.Write("\nNhap vao so nguyen k: ");
+            //Nhập số nguyên k
+            Console.WriteLine("Nhap so nguyen k: ");
             int k = int.Parse(Console.ReadLine());
+            //Nhập số nguyên n
+            Console.WriteLine("Nhap so nguyen n: ");
+            int n = int.Parse(Console.ReadLine());
 
-            //xuat ket qua
-            Console.WriteLine("\nTo hop chap k cua n la: " + tinhToHop(n,k));
+            //Gọi hàm đệ quy
+            Console.WriteLine("To hop chap k cua n la: " + Tohop(n, k));
 
             Console.ReadKey();
         }
 
-        //ham tinh to hop chap k cua n phan tu
-        static int  tinhToHop(int n, int k)
+        //Hàm đệ quy tính tổ hợp chập k của n phần tử
+        static int Tohop(int n, int k)
         {
-            if (k == 0 || k == n)
+            if (k == 0 || k == n )
                 return 1;
             else
-                return tinhToHop(n - 1, k) + tinhToHop(n - 1, k - 1);
+                return Tohop(n - 1, k) + Tohop(n - 1, k - 1);
         }
     }
 }
 ======================================================================
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DQbt3_tinhFn
+{
+    internal class Program
+    {
+        //BT3: Tính f (n)
+        // f(n) = n; f(n - 1) + 2f (n - 2) + 3f (n - 3)
+        // n <= 3, n > 3
+        static void Main(string[] args)
+        {
+            //Nhập giá trị n
+            Console.WriteLine("Nhap gia tri n: ");
+            int n = int.Parse(Console.ReadLine());
+
+            //Gọi hàm đệ quy
+            Console.WriteLine($"f(n) = {Tinhfn(n)}");
+
+            Console.ReadKey();
+        }
+
+        //Hàm đệ quy tính f(n)
+        static int Tinhfn(int n)
+        {
+            if (n <= 3)
+                return n;
+            else
+                return Tinhfn(n - 1) + 2* Tinhfn(n - 2) + 3 * Tinhfn(n - 3);
+        }
+    }
+}
