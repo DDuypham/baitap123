@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace bai 1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Tinh tong tu 1 den n.");
+
+            //nhap gia tri cho n
+            Console.Write("\nNhap vao so nguyen n: ");
+            int n = int.Parse(Console.ReadLine());
+
+            //xuat ket qua tinh tong
+            Console.WriteLine("\nTong tu 1 den n la: " + Tong(n));
+
+            Console.ReadKey();
+        }
+
+        //ham de quy tinh tong
+        static int Tong(int n)
+        {
+            if (n == 1)
+                return 1;
+            else
+                return Tong(n - 1) + n;
+        }
+    }
+}
+======================================================================
+sing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace bai 2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Tinh to hop chap k cua n phan tu.");
+
+            //nhap gia tri n, k
+            Console.Write("\nNhap vao so nguyen n: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("\nNhap vao so nguyen k: ");
+            int k = int.Parse(Console.ReadLine());
+
+            //xuat ket qua
+            Console.WriteLine("\nTo hop chap k cua n la: " + tinhToHop(n,k));
+
+            Console.ReadKey();
+        }
+
+        //ham tinh to hop chap k cua n phan tu
+        static int  tinhToHop(int n, int k)
+        {
+            if (k == 0 || k == n)
+                return 1;
+            else
+                return tinhToHop(n - 1, k) + tinhToHop(n - 1, k - 1);
+        }
+    }
+}
+======================================================================
